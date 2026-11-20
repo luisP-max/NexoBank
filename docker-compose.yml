@@ -1,0 +1,18 @@
+services:
+  db:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: nexobank-db
+    restart: always
+    environment:
+      POSTGRES_USER: Luis
+      POSTGRES_PASSWORD: luis123
+      POSTGRES_DB: nexobank
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
